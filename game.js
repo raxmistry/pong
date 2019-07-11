@@ -35,27 +35,34 @@ Game.keys = {
   40: 'down'
 }
 
-Game.prototype.start = function() {
-    self.draw()
+Game.prototype.draw = function () {
+    var self = this
+    this.entities.forEach(function(entity){
+        console.log(entity)
+        if (entity.draw) {
+            console.log(entity.constructor.name + " has a draw method")
+            entity.draw(self.context)
+        }
+    })
+    
 }
-
-Game.prototype.draw = function() {
-    for (entity in entities) {
-        entity.draw()
-    }
+Game.prototype.start = function() {
+    var self = this
+    self.draw()
 }
 
 function Background() {}
 Background.prototype.draw = function(context) {
-    context.fillStyle = '#000'
-    context.fillRect(0, 0, game.width, game.length)
+    context.fillStyle = "black"
+    context.fillRect(0, 0, game.width, game.height)
 }
 
 
 var game = new Game($('canvas')[0])
 
 game.entities = [
-    new Background()
+    new Background(),
+    new Ball()
 ]
 
 game.start()

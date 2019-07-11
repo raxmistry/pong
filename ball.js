@@ -1,4 +1,3 @@
-
 function Ball() {
     Entity.call(this)
 
@@ -17,5 +16,10 @@ Ball.prototype.constructor = Ball
 
 Ball.prototype.update = function() {
     Entity.prototype.update.apply(this, arguments)
+}
+
+Ball.prototype.draw = function (context) {
+    console.log("ball.draw")
+    
 }
 
