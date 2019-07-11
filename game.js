@@ -25,7 +25,7 @@ function Game(canvas) {
     }
   })
 }
-
+//
 // Some key codes to key name mapping
 Game.keys = {
   32: 'space',
@@ -34,3 +34,30 @@ Game.keys = {
   39: 'right',
   40: 'down'
 }
+
+Game.prototype.start = function() {
+    self.draw()
+}
+
+Game.prototype.draw = function() {
+    for (entity in entities) {
+        entity.draw()
+    }
+}
+
+function Background() {}
+Background.prototype.draw = function(context) {
+    context.fillStyle = '#000'
+    context.fillRect(0, 0, game.width, game.length)
+}
+
+
+var game = new Game($('canvas')[0])
+
+game.entities = [
+    new Background()
+]
+
+game.start()
+$('canvas')[0].focus()
+
