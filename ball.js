@@ -20,6 +20,7 @@ Ball.prototype.update = function() {
 
 Ball.prototype.draw = function (context) {
     console.log("ball.draw")
-    
+    context.fillStyle = "white"    
+    context.fillRect(this.x, this.y, this.width, this.height)
 }
 
