@@ -9,7 +9,7 @@ function Game(canvas) {
 
     // Keep track of key states
     // Eg.:
-    //   game.keyPressed.up === true  // while UP key is pressed
+    //   gamefkeyPressed.up === true  // while UP key is pressed
     //   game.keyPressed.up === false // when UP key is released
     this.keyPressed = {}
 
@@ -76,7 +76,8 @@ var game = new Game($('canvas')[0])
 
 game.entities = [
     new Background(),
-    new Ball()
+    game.computer = new Computer(),
+    game.ball = new Ball()
 ]
 
 game.start()
