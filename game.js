@@ -77,6 +77,7 @@ var game = new Game($('canvas')[0])
 game.entities = [
     new Background(),
     game.computer = new Computer(),
+    game.paddle = new Paddle(),
     game.ball = new Ball()
 ]
 

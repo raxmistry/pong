@@ -18,11 +18,14 @@ Ball.prototype.update = function() {
     Entity.prototype.update.apply(this, arguments)
 
     if (this.x > (game.width - this.width) || this.x < 0) {
-      this.xVelocity *= -1 
+        this.xVelocity *= -1
     }
 
     if (this.y > (game.height - this.height) || this.y < 0) {
-      this.yVelocity *= -1 
+        this.yVelocity *= -1 
+    }
+    if (this.intersect(game.computer) || this.intersect(game.paddle)) {
+        this.xVelocity *= -1
     }
 }
 
